@@ -84,7 +84,7 @@ with tab2:
             class_submit = st.form_submit_button("predict Status")
 
         if class_submit:
-            with open(r"RandForsClass_model.pkl", 'rb') as file:
+            with open(r"ExtraTreesClassifier_model.pkl", 'rb') as file:
                 cloaded_model = pickle.load(file)
             with open(r'cscaler.pkl', 'rb') as f:
                 cscaler_loaded = pickle.load(f)
@@ -100,7 +100,7 @@ with tab2:
                                         axis=1)
             pred_class_input = cscaler_loaded.transform(new_sample)
             pred_class = cloaded_model.predict(pred_class_input)
-            st.write(pred_class)
+            #st.write(pred_class)
             if pred_class == 1:
                 st.write('## :green[The Status is Won] ')
             else:
